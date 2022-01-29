@@ -1,4 +1,4 @@
-"""EX02 - One Shot Wordle"""
+"""EX02 - One Shot Wordle."""
 
 __author__ = "730394746"
 
@@ -7,12 +7,10 @@ secret_word = "python"
 guess: str = input(f"What is your {len(secret_word)}-letter guess? ")
 
 while len(guess) != len(secret_word):
-    guess: str = input(f"That was not {len(secret_word)} letters! Try again: ")
-
-WHITE_BOX: str = "\U00002B1C "
-GREEN_BOX: str = "\U0001F7E9 "
-YELLOW_BOX: str = "\U0001F7E8 "
-
+    guess = input(f"That was not {len(secret_word)} letters! Try again: ")
+WHITE_BOX: str = "\U00002B1C"
+GREEN_BOX: str = "\U0001F7E9"
+YELLOW_BOX: str = "\U0001F7E8"
 no_matching_character = True
 # No matching character variable checks to see if the word includes the character in the checking index of interest. When there is no match throughout the word, variable becomes true and a white box will be added. If variable is false a yellow box is added. 
 checking_index = 0
