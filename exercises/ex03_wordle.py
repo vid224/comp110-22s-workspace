@@ -16,7 +16,7 @@ def contains_char(secret_word: str, search_character: str) -> bool:
 
 
 def emojified(guess_word: str, secret_word: str) -> str:
-# Codes for assigning emojis to guesses
+    # Codes for assigning emojis to guesses
     """Assigns emojis to each character based on correctness."""
     assert len(guess_word) == len(secret_word)
     WHITE_BOX: str = "\U00002B1C"
@@ -37,7 +37,7 @@ def emojified(guess_word: str, secret_word: str) -> str:
 
 
 def input_guess(num_of_chars: int) -> str:
-# Codes to limit guess character length
+    # Codes to limit guess character length
     """Allow for the entry of guess word that is expected length."""
     guess: str = input(f"Enter a {num_of_chars} character word: ")
     while len(guess) != num_of_chars:
@@ -46,7 +46,7 @@ def input_guess(num_of_chars: int) -> str:
 
 
 def main() -> None:
-# Combines previous functions to work together to create a structured wordled
+    # Combines previous functions to work together to create a structured wordled
     """The entrypoint of the program and main game loop."""
     secret_word = "codes"
     turn = 1
