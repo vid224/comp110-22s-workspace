@@ -22,8 +22,7 @@ while checking_index < len(secret_word):
         emoji += GREEN_BOX
         # The program first checks to see if the characters in the same index on both words match and if true, will add a green emoji and move to the next letter
     else:
-        while no_matching_character and alt_checking_index < len(secret_word):
-            # These conditions allow the program to only look for matching characters throughout the word as long as the character has not been previously found in an earlier index in the guess word and the checking index is not greater than the length of the guess word
+        while no_matching_character and alt_checking_index < len(secret_word):  # These conditions allow the program to only look for matching characters throughout the word as long as the character has not been previously found in an earlier index in the guess word and the checking index is not greater than the length of the guess word
             if guess[checking_index] != secret_word[alt_checking_index]:
                 alt_checking_index += 1
             else:
@@ -43,4 +42,3 @@ if guess == secret_word:
     print("Woo! You got it!")
 else:
     print("Not quite. Play again soon!")
-    quit()
