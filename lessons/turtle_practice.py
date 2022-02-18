@@ -38,7 +38,54 @@
 # b.forward(230)
 # b.end_fill()
 
-
+def trees(t: Turtle, number: int, x_one: int, x_two: int, y_one: int, y_two: int) -> None:
+    """Inserts a certain number tress in a particular area."""
+    # t: Turtle = Turtle()
+    t.right(90)
+    t.speed(100)
+    ti = 0
+    tii = 0
+    while tii < number:
+        if tii < number // 2:
+            x = randint(-x_two, -x_one)
+            y = randint(y_one, y_two)
+        else:
+            x = randint(x_one, x_two)
+            y = randint(y_one, y_two)
+        while ti < 2:
+            t.color("brown")
+            t.penup()
+            t.goto(x, y)
+            t.pendown()
+            i = 0
+            d: float = 5.0
+            if ti % 2 == 0:
+                t.left(90)
+            else:
+                t.left(260)
+            t.forward(50)
+            if ti % 2 == 0:
+                t.left(100)
+            else:
+                t.right(100)
+            while i < 25:
+                t.color("black")
+                d *= 1.05
+                t.forward(d)
+                if ti % 2 == 0:
+                    t.left(170)
+                else:
+                    t.right(170)
+                t.forward(0.9848 * d)
+                if ti % 2 == 0:
+                    t.right(170)
+                else:
+                    t.left(170)
+                i += 1
+            ti += 1
+        t.left(10)
+        tii += 1
+        ti = 0
 
 
 from turtle import Turtle, colormode, done

@@ -75,56 +75,6 @@ def mountains(m: Turtle, x_start: int, x_end: int, y: float, number: int) -> Non
         m.end_fill()
 
 
-def trees(t: Turtle, number: int, x_one: int, x_two: int, y_one: int, y_two: int) -> None:
-    """Inserts a certain number tress in a particular area."""
-    # t: Turtle = Turtle()
-    t.right(90)
-    t.speed(100)
-    ti = 0
-    tii = 0
-    while tii < number:
-        if tii < number // 2:
-            x = randint(-x_two, -x_one)
-            y = randint(y_one, y_two)
-        else:
-            x = randint(x_one, x_two)
-            y = randint(y_one, y_two)
-        while ti < 2:
-            t.color("brown")
-            t.penup()
-            t.goto(x, y)
-            t.pendown()
-            i = 0
-            d: float = 5.0
-            if ti % 2 == 0:
-                t.left(90)
-            else:
-                t.left(260)
-            t.forward(50)
-            if ti % 2 == 0:
-                t.left(100)
-            else:
-                t.right(100)
-            while i < 25:
-                t.color("black")
-                d *= 1.05
-                t.forward(d)
-                if ti % 2 == 0:
-                    t.left(170)
-                else:
-                    t.right(170)
-                t.forward(0.9848 * d)
-                if ti % 2 == 0:
-                    t.right(170)
-                else:
-                    t.left(170)
-                i += 1
-            ti += 1
-        t.left(10)
-        tii += 1
-        ti = 0
-
-
 def clouds(c: Turtle, x: int, y_start: int, y_end: int, number: int) -> None:
     """Inserts clouds in a certain area."""
     # c: Turtle = Turtle()
@@ -147,19 +97,19 @@ def clouds(c: Turtle, x: int, y_start: int, y_end: int, number: int) -> None:
 
 def turtles(tu: Turtle, color: str, x_start: int, x_end: int, y_start: int, y_end: int) -> None:
     """Inserts turtles with specific colored masks."""
+    tu.pencolor("black")
     tu.penup()
     tu.goto(randint(x_start, x_end), randint(y_start, y_end))
     tu.pendown()
-    tu.color("green")
+    tu.fillcolor("green")
     tu.begin_fill()
     tu.circle(18, 360)
     tu.end_fill()
     tu.left(180)
-    tu.color(color)
+    tu.fillcolor(color)
     tu.begin_fill()
     tu.circle(5, 360)
     tu.end_fill()
-    tu.color("black")
     tu.left(215)
     side_length: float = 20.0
     i = 0
@@ -180,16 +130,15 @@ def main() -> None:
     rectangle(bob, 100, 95, -50, 0, "blue")
     mountains(bob, -243, 200, 95, 20)
     clouds(bob, -243, 120, 180, 4)
-    trees(bob, 10, 120, 230, -120, 0)
     i = 0
     while i < 4:
-        turtles(bob, color[i], -80, 80, -150, -30)
-        i += 1
         bob.right(90)
+        turtles(bob, color[i], -80, 80, -170, -30)
+        i += 1
     done()
 
 
-color: list[str] = ["red", "black", "purple", "orange"]
+color: list[str] = ["red", "blue", "purple", "orange"]
 
 if __name__ == "__main__":  # Allows for program to run as a module and import into other modules 
     main()  
