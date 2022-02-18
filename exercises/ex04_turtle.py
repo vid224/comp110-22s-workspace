@@ -95,7 +95,7 @@ def trees(t: Turtle, number: int, x_one: int, x_two: int, y_one: int, y_two: int
             t.goto(x, y)
             t.pendown()
             i = 0
-            d = 5
+            d: float = 5.0
             if ti % 2 == 0:
                 t.left(90)
             else:
@@ -161,7 +161,7 @@ def turtles(tu: Turtle, color: str, x_start: int, x_end: int, y_start: int, y_en
     tu.end_fill()
     tu.color("black")
     tu.left(215)
-    side_length = 20
+    side_length: float = 20.0
     i = 0
     while (i < 25):
         side_length *= 0.93
