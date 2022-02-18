@@ -8,14 +8,14 @@ colormode(255)
 
 
 def grass(b: Turtle, x: float, y: float) -> None:
-    """Sets up main backround and boundaries for where stuff exists."""
+    """Makes triangles based on given starting point to become grass."""
     b.color("green")
     b.penup()
     b.goto(x, y)
     b.pendown()
     b.begin_fill()
     # [b.forward(230), b.left(90), b.forward(193), b.left(130), b.forward(300), b.right(130)]
-    if x >= 0:
+    if x >= 0:  # Triangle is created based on which side of the origin it is placed
         b.right(50)
         b.forward(300)
         b.left(140)
@@ -39,7 +39,7 @@ def grass(b: Turtle, x: float, y: float) -> None:
 
 
 def rectangle(r: Turtle, side_one: int, side_two: int, x: float, y: float, color: str) -> None:
-    """Draws a line between to specified points."""
+    """Draws a rectangle based on requested color and size at specified location."""
     r.color(color)
     r.penup()
     r.goto(x, y)
@@ -57,7 +57,7 @@ def rectangle(r: Turtle, side_one: int, side_two: int, x: float, y: float, color
 
 
 def mountains(m: Turtle, x_start: int, x_end: int, y: float, number: int) -> None:
-    """Inserts a ninja turtle, each with a different color mask."""
+    """Draws requested number of mountains randomly within a range of x and at a specific y."""
     m.color("purple")
     iii = 0
     while iii < number:
@@ -76,15 +76,14 @@ def mountains(m: Turtle, x_start: int, x_end: int, y: float, number: int) -> Non
 
 
 def clouds(c: Turtle, x: int, y_start: int, y_end: int, number: int) -> None:
-    """Inserts clouds in a certain area."""
-    # c: Turtle = Turtle()
+    """Inserts select number of clouds randomly sized randomly within a certain area."""
     c.color("black")
-    size: list[int] = [5, 10, 20]
+    size: list[int] = [5, 10, 20]  # Used to randomly size the cloud by inserting a random size puff. Allows for variety within the clouds placed
     aa = 0
     c. left(90)
     while aa < number:
         c.penup()
-        c.goto((x + 120), randint(y_start, y_end))
+        c.goto((x + 120), randint(y_start, y_end))  # Helps space out the clouds so they are randomly placed but still evently distributed throughout the sky
         x += 120
         c.pendown()
         a = 0
@@ -96,7 +95,7 @@ def clouds(c: Turtle, x: int, y_start: int, y_end: int, number: int) -> None:
 
 
 def turtles(tu: Turtle, color: str, x_start: int, x_end: int, y_start: int, y_end: int) -> None:
-    """Inserts turtles with specific colored masks."""
+    """Inserts turtles with specific colored masks (heads) in a certain area."""
     tu.pencolor("black")
     tu.penup()
     tu.goto(randint(x_start, x_end), randint(y_start, y_end))
@@ -121,7 +120,7 @@ def turtles(tu: Turtle, color: str, x_start: int, x_end: int, y_start: int, y_en
 
 
 def main() -> None:
-    """Main loop."""
+    """Main loop that combines all the components and creates a scenery with a waterfall, mountains, clouds, and turtles swimming in the water."""
     bob: Turtle = Turtle()
     rectangle(bob, 485, 230, -243, -230, "blue")
     grass(bob, 50, 0)
@@ -138,7 +137,7 @@ def main() -> None:
     done()
 
 
-color: list[str] = ["red", "blue", "purple", "orange"]
+color: list[str] = ["red", "blue", "purple", "orange"]  # Used to assign various colors to the heads of the turtles to resemble the different colored masks of the ninja turtles
 
 if __name__ == "__main__":  # Allows for program to run as a module and import into other modules 
     main()  
